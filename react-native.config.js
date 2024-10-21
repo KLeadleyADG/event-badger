@@ -36,4 +36,13 @@ module.exports = {
       },
     },
   },
+  project: {
+    ios: {},
+    android: {
+      watchModeCommandParams: [
+        '--mode',
+        'generalDebug',
+      ],
+    },
+  },
 };

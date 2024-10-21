@@ -1,6 +1,9 @@
 rootProject.name = 'event-badger'
 
 include ':react-native-camera'
+include ':react-native-device-info'
+project(':react-native-device-info').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-device-info/android')
+
 project(':react-native-camera').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-camera/android')
 
 dependencyResolutionManagement {

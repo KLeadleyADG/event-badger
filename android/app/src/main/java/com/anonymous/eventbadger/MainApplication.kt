@@ -13,8 +13,14 @@ import com.learnium.RNDeviceInfo.RNDeviceInfo // Import RNDeviceInfo package
 class MainApplication : Application(), ReactApplication {
 
     override val reactNativeHost: ReactNativeHost = object : DefaultReactNativeHost(this) {
-        override fun getPackages(): List<ReactPackage> = PackageList(this).packages.apply {
-            // Manually linked packages can be added here
+        override fun getPackages(): List<ReactPackage> {
+            // Fetch the autolinked packages using PackageList
+            val packages: MutableList<ReactPackage> = PackageList(this).packages
+
+            // Manually add RNDeviceInfo package, if necessary
+            packages.add(RNDeviceInfo())
+
+            return packages
         }
 
         override fun getJSMainModuleName(): String = "index"

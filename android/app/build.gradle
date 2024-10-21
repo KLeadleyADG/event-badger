@@ -8,6 +8,7 @@ react {
     reactNativeDir = new File(["node", "--print", "require.resolve('react-native/package.json')"].execute(null, rootDir).text.trim()).getParentFile().getAbsoluteFile()
     hermesCommand = new File(["node", "--print", "require.resolve('react-native/package.json')"].execute(null, rootDir).text.trim()).getParentFile().getAbsolutePath() + "/sdks/hermesc/%OS-BIN%/hermesc"
     codegenDir = new File(["node", "--print", "require.resolve('@react-native/codegen/package.json', { paths: [require.resolve('react-native/package.json')] })"].execute(null, rootDir).text.trim()).getParentFile().getAbsoluteFile()
+    debuggableVariants = ["generaldebug", "generalrelease"]
 }
 
 def enableProguardInReleaseBuilds = (findProperty('android.enableProguardInReleaseBuilds') ?: false).toBoolean()
@@ -28,8 +29,8 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0.0"
-
-        missingDimensionStrategy 'react-native-camera', 'general' 
+        multiDexEnabled true
+        missingDimensionStrategy 'react-native-camera', 'mlkit' 
     }
 
     signingConfigs {
@@ -67,9 +68,9 @@ android {
         general {
             dimension "react-native-camera"
         }
-        mlkit {
-            dimension "react-native-camera"
-        }
+        // mlkit {
+        //     dimension "react-native-camera"
+        // }
     }
 }
 
@@ -83,6 +84,8 @@ dependencies {
     implementation 'com.google.mlkit:face-detection:16.1.2'
     implementation project(path: ':react-native-camera')
     implementation 'androidx.lifecycle:lifecycle-runtime:+'
+    implementation project(':react-native-device-info')
+    implementation 'androidx.multidex:multidex:2.0.1'
 }
 
 apply from: new File(["node", "--print", "require.resolve('@react-native-community/cli-platform-android/package.json', { paths: [require.resolve('react-native/package.json')] })"].execute(null, rootDir).text.trim(), "../native_modules.gradle")

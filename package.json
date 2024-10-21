@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "android": "npx react-native run-android",
+    "android": "cd android && ./gradlew installGeneralDebug && cd .. && npx react-native start",
     "ios": "npx react-native run-ios",
     "start": "npx react-native start",
     "start:node": "cd backend/node_server && node server.js",
     "start:python": "cd backend/python_server && python app.py",
-    "build:android": "cd android && ./gradlew assembleRelease",
+    "build:android": "cd android && ./gradlew assembleGeneralDebug",
     "build:ios": "cd ios && xcodebuild -workspace event-badger.xcworkspace -scheme event-badger -configuration Release -sdk iphoneos -derivedDataPath build",
     "align-deps": "rnx-align-deps"
   },
