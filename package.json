@@ -1,0 +1,47 @@
+{
+  "name": "eventbadger",
+  "version": "1.0.0",
+  "main": "./entryPoint.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "start:node": "cd backend/node_server && node server.js",
+    "start:python": "cd backend/python_server && python app.py"
+  },
+  "dependencies": {
+    "@react-navigation/native": "^6.1.18",
+    "@react-navigation/native-stack": "^6.11.0",
+    "@react-navigation/stack": "^6.4.1",
+    "axios": "^1.7.7",
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "expo": "~52.0.28",
+    "expo-barcode-scanner": "~12.9.2",
+    "expo-camera": "~16.0.14",
+    "expo-file-system": "~18.0.9",
+    "expo-status-bar": "~2.0.1",
+    "express": "^4.21.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.8.0",
+    "net-ping": "^1.2.4",
+    "node-arp": "^1.0.6",
+    "nodemailer": "^6.9.16",
+    "react": "18.3.1",
+    "react-native": "0.76.6",
+    "react-native-dotenv": "^3.4.11",
+    "react-native-element-dropdown": "^2.12.2",
+    "react-native-fs": "^2.20.0",
+    "react-native-keyboard-aware-scroll-view": "^0.9.5",
+    "react-native-qrcode-svg": "^6.3.12",
+    "react-native-safe-area-context": "4.12.0",
+    "react-native-screens": "~4.4.0",
+    "react-native-svg": "^15.8.0",
+    "react-native-view-shot": "~4.0.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.0"
+  },
+  "private": true
+}
